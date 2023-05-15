@@ -5,3 +5,43 @@ py -m venv venv
 python3 -m venv venv
 
 ls para verificar que estamos dentro
+
+#PREPARACION DE ENTORNO
+pip install -r requirements.txt
+
+#COMANDOS Github
+git add .
+git commit -m "Mensaje del commit"
+git push
+
+#COMANDOS PYTHON
+# instalar flask en el espacio dev o env
+
+pip install flask
+
+#crear variable de ambiente para indicarle al ambiente donde esta mi archivo a ejecutar al arrancar el servidor flask
+
+#Para verificar que existe
+export FLASK_APP=main.py
+echo $FLASK_APP
+
+#RUN flask - iniciar servidor flask
+flask run
+
+#Encender el modo debug, creando otra variable 
+export FLASK_DEBUG=1
+echo $FLASK_DEBUG
+
+#Desechados del desarrollo
+<h5>IP Detectada: {{user_ip}}</h1> #anteriormente ubicado en el if p_user
+
+#Si la terminal no encuentra flask para ejecutar la app, se sigue la siguiente verificacion
+#Ruta de flask que resulta al ejecutar:
+pip show flask
+/home/codespace/.local/lib/python3.10/site-packages
+
+#Reemplazar la ruta en la que el sistema busca a flask
+export PATH=$PATH:/home/codespace/.local/lib/python3.10/site-packages
+
+#SOLUCION DEFINITIVA, LA TERMINAL DEBE EJECUTAR CON PYTHON
+python -m flask run
