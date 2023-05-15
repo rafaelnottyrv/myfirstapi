@@ -4,10 +4,18 @@
 py -m venv venv
 python3 -m venv venv
 
+#activar el entorno alt +92\ en linux es con source
+.\venv\Scripts\activate
+source venv/bin/activate 
+
 ls para verificar que estamos dentro
 
-#PREPARACION DE ENTORNO
+#PREPARACION DE ENTORNO, actualizar pip
+python3 -m pip install --upgrade pip
 pip install -r requirements.txt
+
+#Arrancar FastAPI
+uvicorn main:app --reload
 
 #COMANDOS Github
 git add .
