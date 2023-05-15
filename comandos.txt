@@ -1,0 +1,7 @@
+#crear carpeta del repo
+
+#Crear entorno virtual
+py -m venv venv
+python3 -m venv venv
+
+ls para verificar que estamos dentro
