@@ -14,9 +14,6 @@ ls para verificar que estamos dentro
 python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 
-#Arrancar FastAPI
-uvicorn main:app --reload
-
 #COMANDOS Github
 git add .
 git commit -m "Mensaje del commit"
@@ -53,3 +50,6 @@ export PATH=$PATH:/home/codespace/.local/lib/python3.10/site-packages
 
 #SOLUCION DEFINITIVA, LA TERMINAL DEBE EJECUTAR CON PYTHON
 python -m flask run
+
+#Arrancar FastAPI
+uvicorn main:app --reload
