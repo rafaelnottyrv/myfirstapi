@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Error 404</title>
-</head>
-<body>
-    <h1>Error 404 - Página no encontrada</h1>
-    <p>La página que estás buscando no se encontró.</p>
-    <p>Solicitud realizada desde: {{ request.client.host }}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Página de inicio{% endblock %}
+
+{% block content %}
+<h1>Error 404</h1>
+<p> No se encontro el sitio que Buscabas </p>
+{% endblock %}
