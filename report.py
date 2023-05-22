@@ -1,9 +1,8 @@
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-        
+
 def generate_ini_google_doc(sheet_id, sheet_name):
     """Actualiza el contenido de google sheets"""
-
     # Credenciales de autenticación y autorización
     creds = service_account.Credentials.from_service_account_file('credentials.json')
     
@@ -14,9 +13,8 @@ def generate_ini_google_doc(sheet_id, sheet_name):
     sheet = service.spreadsheets()
     range_name = sheet_name + '!A1'
     values = [
-        ["KPI2", 'Iniciativa', 'Nombre App', 'Tiempo', 'Tiempo Custom', 'Request', 'Promedio', 'Promedio custom', 'Nota', 'Nota Custom']
+        ["KPI4", 'Iniciativa', 'Nombre App', 'Tiempo', 'Tiempo Custom', 'Request', 'Promedio', 'Promedio custom', 'Nota', 'Nota Custom']
     ]
-    
 
     # Escribir los datos en la hoja de cálculo
     request_body = {

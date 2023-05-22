@@ -23,4 +23,26 @@
     text-decoration: none;
 }
 
+h1 {
+    text-align: center;
+}
 
+form {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 10px;
+}
