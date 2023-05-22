@@ -4,6 +4,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.requests import Request
+import datetime
+import report
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -24,8 +26,14 @@ async def default_exception_handler(request: Request, exc: Exception):
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     user_ip = request.client.host
+    ct = datetime.datetime.now()
+    sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
+    sheet_name = "Hoja1"
+    report.generate_ini_google_doc(sheet_id,sheet_name)
+    
     context = {
         "request": request,
-        "user_ip": user_ip
+        "user_ip": user_ip,
+        "ct": ct
     }
     return templates.TemplateResponse("index.html", context=context)
