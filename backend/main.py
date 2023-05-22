@@ -4,14 +4,16 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.requests import Request
+from pydantic import BaseModel
+import subprocess
 import datetime
 import report
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="/frontend/templates")
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/frontend/static", StaticFiles(directory="static"), name="static")
 
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(request: Request, exc: StarletteHTTPException):

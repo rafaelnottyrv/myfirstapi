@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Página de inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a mi sitio web</h1>
+<p>Esta es la página de inicio.</p>
+{% endblock %}
+
+{% block content %}
+<h1>Formulario</h1>
+    <form id="myForm">
+        <label for="id1">ID 1:</label>
+        <input type="text" id="id1" name="id1"><br><br>
+        <label for="id2">ID 2:</label>
+        <input type="text" id="id2" name="id2"><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div id="result"></div>
+{% endblock %}
