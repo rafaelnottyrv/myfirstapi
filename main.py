@@ -21,9 +21,6 @@ class FormInput(BaseModel):
 async def home(request: Request):
     user_ip = request.client.host
     ct = datetime.datetime.now()
-    sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
-    sheet_name = "Hoja1"
-    functions.generate_ini_google_doc(sheet_id,sheet_name)
     
     context = {
         "request": request,
@@ -44,5 +41,7 @@ async def default_exception_handler(request: Request, exc: Exception):
 
 @app.post("/execute-function")
 def execute_function():
-    functions.prueba()
-    return {"message": "La función function1() se ejecutó correctamente"}
+    sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
+    sheet_name = "Hoja1"
+    functions.generate_ini_google_doc(sheet_id,sheet_name)
+    return {"message": "Se ejecutó correctamente el Procesamiento de los Datos"}
