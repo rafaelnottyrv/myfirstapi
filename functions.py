@@ -27,3 +27,7 @@ def generate_ini_google_doc(sheet_id, sheet_name):
         body=request_body
     ).execute()
     return result
+
+def prueba():    
+    """Retorna Hola"""
+    print("Hola_Mundo")

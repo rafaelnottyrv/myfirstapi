@@ -42,22 +42,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
 async def default_exception_handler(request: Request, exc: Exception):
     return templates.TemplateResponse("excepciones.html", {"request": request, "exc": exc}, status_code=500)
 
-@app.post("/api/function1")
-async def process_form_data(data: dict):
-    id1 = data.get("id1")
-    id2 = data.get("id2")
-
-    # Ejecutar el código desde function1.py
-    result = function1.execute(id1, id2)
-
-    # Hacer algo con el resultado (por ejemplo, devolverlo como respuesta JSON)
-    return {"result": result}
-
-@app.post("/process")
-async def process(form_input: FormInput):
-    result = subprocess.run(["python", "function1.py", form_input.id1, form_input.id2], capture_output=True)
-    if result.returncode == 0:
-        return {"message": result.stdout.decode()}
-    else:
-        return {"message":"Hola"}
-
+@app.post("/execute-function")
+def execute_function():
+    functions.prueba()
+    return {"message": "La función function1() se ejecutó correctamente"}
