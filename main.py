@@ -5,7 +5,7 @@ from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.staticfiles import StaticFiles
-import report
+import functions
 from pydantic import BaseModel
 import subprocess
 
@@ -23,7 +23,7 @@ async def home(request: Request):
     ct = datetime.datetime.now()
     sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
     sheet_name = "Hoja1"
-    report.generate_ini_google_doc(sheet_id,sheet_name)
+    functions.generate_ini_google_doc(sheet_id,sheet_name)
     
     context = {
         "request": request,
@@ -31,14 +31,6 @@ async def home(request: Request):
         "ct": ct
     }
     return templates.TemplateResponse("index.html", context=context)
-
-@app.post("/process")
-async def process(form_input: FormInput):
-    result = subprocess.run(["python", "function1.py", form_input.id1, form_input.id2], capture_output=True)
-    if result.returncode == 0:
-        return {"message": result.stdout.decode()}
-    else:
-        return {"message":"Hola"}
 
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(request: Request, exc: StarletteHTTPException):
@@ -60,3 +52,12 @@ async def process_form_data(data: dict):
 
     # Hacer algo con el resultado (por ejemplo, devolverlo como respuesta JSON)
     return {"result": result}
+
+@app.post("/process")
+async def process(form_input: FormInput):
+    result = subprocess.run(["python", "function1.py", form_input.id1, form_input.id2], capture_output=True)
+    if result.returncode == 0:
+        return {"message": result.stdout.decode()}
+    else:
+        return {"message":"Hola"}
+

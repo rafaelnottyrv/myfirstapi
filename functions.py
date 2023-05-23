@@ -13,7 +13,7 @@ def generate_ini_google_doc(sheet_id, sheet_name):
     sheet = service.spreadsheets()
     range_name = sheet_name + '!A1'
     values = [
-        ["KPI4", 'Iniciativa', 'Nombre App', 'Tiempo', 'Tiempo Custom', 'Request', 'Promedio', 'Promedio custom', 'Nota', 'Nota Custom']
+        ["KPI5", 'Iniciativa', 'Nombre App', 'Tiempo', 'Tiempo Custom', 'Request', 'Promedio', 'Promedio custom', 'Nota', 'Nota Custom']
     ]
 
     # Escribir los datos en la hoja de cálculo
