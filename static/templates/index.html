@@ -2,48 +2,20 @@
 {% block title %}Página de inicio{% endblock %}
 
 {% block content %}
-<h1>Bienvenido a mi sitio web</h1>
-<p>Esta es la página de inicio.</p>
+<h2>Welcome to the Future</h2>
+<p> Aqui encontrarás soluciones de Ingenieria Avanzada, Proyectos de Infraestructura de Energia eléctrica, Telecomunicaciones, Automatización Industrial, Ciencia de Datos e Inteligencia Artificial</p>
 
-
-<h1>Formulario</h1>
+<h3>Analizar Datos</h3>
+<h4>Google sheets</h4>
     <form id="myForm">
-        <label for="id1">ID 1:</label>
+        <label for="id1">ID Document (Q):</label>
         <input type="text" id="id1" name="id1" required><br><br>
 
-        <label for="id2">ID 2:</label>
+        <label for="id2">ID Document (P):</label>
         <input type="text" id="id2" name="id2" required><br><br>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Procesar</button>
+        <button type="submit">Ver Respuesta</button>
     </form>
-
-    <script>
-        // Capturar el evento submit del formulario
-        document.getElementById("myForm").addEventListener("submit", async function(event) {
-            event.preventDefault(); // Evitar que se envíe el formulario automáticamente
-
-            // Obtener los valores de los campos de texto
-            const id1 = document.getElementById("id1").value;
-            const id2 = document.getElementById("id2").value;
-
-            // Enviar una solicitud POST al backend
-            const response = await fetch("/api/function1", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ id1, id2 }) // Enviar los valores como JSON
-            });
-
-            if (response.ok) {
-                // La solicitud fue exitosa
-                const data = await response.json();
-                console.log(data); // Hacer algo con la respuesta del backend
-            } else {
-                // Hubo un error en la solicitud
-                console.error("Error en la solicitud:", response.status);
-            }
-        });
-    </script>
     
 {% endblock %}

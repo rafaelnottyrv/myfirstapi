@@ -46,3 +46,14 @@ input[type="text"] {
 button {
     margin-top: 10px;
 }
+
+footer {
+    background-color: #555;
+    text-align: center;
+    padding: 10px;
+  }
+
+  footer img {
+    width: 200px;
+    height: auto;
+  }
