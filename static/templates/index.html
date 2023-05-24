@@ -2,29 +2,33 @@
 {% block title %}Página de inicio{% endblock %}
 
 {% block content %}
-<h2>Welcome to the Future</h2>
-<p> Aqui encontrarás soluciones de Ingenieria Avanzada, Proyectos de Infraestructura de Energia eléctrica, Telecomunicaciones, Automatización Industrial soportadas con Ciencia de Datos e Inteligencia Artificial</p>
-<br>
-<p> Sigue las siguientes instrucciones: </p>
-<br>
-<p> 1. Comparte tus Google-Sheets con rafaeldavidrinconvillamizar@core-verbena-365621.iam.gserviceaccount.com </p>
-<p> 2. Verifica que documento contenga dos sheetname Hoja1 y Hoja2, serán necesarios para leer los datos y escribir el resultado del procesamiento </p>
-<p> 3. Ingresa el ID document correspondiente a Caudal (Q) y Presión (P) en los campos indicados </p>
-<p> 4. Presiona el boton "Enviar" </p>
-<p> 5. Consulta resultados en tu documento ingresado, este ha sido actualizado. O presiona el boton "Consultar Resultados" </p>
-
-<h3>Analizar Datos</h3>
-<h4>Google sheets</h4>
-    <form id="myForm">
+<section class="welcome">
+    <h2>Welcome to the Future</h2>
+    <p> Aqui encontrarás soluciones de Ingenieria Avanzada, Proyectos de Infraestructura de Energia eléctrica, Telecomunicaciones, Automatización Industrial soportadas con Ciencia de Datos e Inteligencia Artificial</p>
+<h3>Modulo de Procesamiento de Datos</h3>
+</section>
+<section class="instructions">
+    <h3>Instrucciones:</h3>
+    <p> 1. Comparte tus Google-Sheets con rafaeldavidrinconvillamizar@core-verbena-365621.iam.gserviceaccount.com </p>
+    <p> 2. Verifica que documento contenga dos sheetname Hoja1 y Hoja2, serán necesarios para leer los datos y escribir el resultado del procesamiento </p>
+    <p> 3. Ingresa el ID document correspondiente a Caudal (Q) y Presión (P) en los campos indicados </p>
+    <p> 4. Presiona el boton "Enviar" </p>
+    <p> 5. Consulta resultados en tu documento ingresado, este ha sido actualizado. O presiona el boton "Consultar Resultados" </p>
+</section>
+<h3>Google sheets</h3>
+<section class="formu">
+    <form action="/procesar" method="post">
         <label for="id1">ID Document (Q):</label>
         <input type="text" id="id1" name="id1" required><br><br>
 
         <label for="id2">ID Document (P):</label>
         <input type="text" id="id2" name="id2" required><br><br>
 
-        <button type="submit">Procesar</button>
-        <button type="submit">Ver Respuesta</button>
-        <button onclick="prueba()">Haz clic para probar</button>
+        <button type="submit">Ejecutar Análisis</button>
     </form>
-    
+    <form action="/resultados" method="post">
+        <button type="submit">Ir a Resultados</button>
+    </form>
+    <br>
+</section>
 {% endblock %}

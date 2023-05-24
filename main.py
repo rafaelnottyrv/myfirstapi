@@ -1,12 +1,12 @@
 import datetime
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
 from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.staticfiles import StaticFiles
-import functions
 from pydantic import BaseModel
+import functions
 import subprocess
 
 app = FastAPI()
@@ -39,9 +39,24 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
 async def default_exception_handler(request: Request, exc: Exception):
     return templates.TemplateResponse("excepciones.html", {"request": request, "exc": exc}, status_code=500)
 
-@app.post("/execute-function")
-def execute_function():
-    sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
-    sheet_name = "Hoja1"
-    functions.generate_ini_google_doc(sheet_id,sheet_name)
+@app.post("/procesar")
+def procesar(id1: str = Form(...), id2: str = Form(...)):
+    functions.generate_ini_google_doc(id1,id2)
     return {"message": "Se ejecutó correctamente el Procesamiento de los Datos"}
+
+@app.post("/resultados")
+def resultados():
+        return HTMLResponse("""
+        <html>
+        <head>
+            <title>Redirección</title>
+            <script>
+                window.open("https://docs.google.com/", "_blank");
+            </script>
+        </head>
+        <body>
+            <h1>Redirigiendo...</h1>
+            <h3>Dale clic a permitir ventanas emergentes</h3>
+        </body>
+        </html>
+    """)

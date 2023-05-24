@@ -53,3 +53,7 @@ python -m flask run
 
 #Arrancar FastAPI
 python3 -m uvicorn main:app --reload
+
+#Pruebas
+sheet_id = "1TrUdsIEKcsQnfISTO-XXXUeKHc-1wZNDmMZTZKZ1P78"
+sheet_name = "Hoja1"
